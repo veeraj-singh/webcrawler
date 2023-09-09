@@ -1,4 +1,5 @@
 const {CrawlPage}= require('./crawl.js')
+const {PrintReport}= require('./report.js')
 async function main() {
     if(process.argv.length>3){
         console.log("Error : Provide a single url please")
@@ -13,8 +14,6 @@ async function main() {
     }
     const baseurl=process.argv[2]
     const pages=await CrawlPage(baseurl,baseurl,{})
-    for(const page of Object.entries(pages)){
-        console.log(page)
-    }
+    PrintReport(pages)
 }
 main()
